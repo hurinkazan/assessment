@@ -26,6 +26,20 @@
         const paragraph = document.createElement('p');
         paragraph.innerHTML = Result;
         resultDivided.appendChild(paragraph);
+        
+        
+        removeAllChildren(tweetDivided);
+        const anchor = document.createElement('a');
+        const hrefValue = 'https://twitter.com/intent/tweet?button_hashtag='
+            + encodeURIComponent('あなたのいいところ')
+            + '&ref_src=twsrc%5Etfw';
+        anchor.setAttribute('href', hrefValue);
+        anchor.className = 'twitter-hashtag-button';
+        anchor.setAttribute('data-text', Result);
+        anchor.innerText = 'Tweet #あなたのいいところ';
+        tweetDivided.appendChild(anchor);
+
+        twttr.widgets.load();
     }
 
     const answers = [
